@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #chat-box {
+            width: 500px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #eee;
+            height: 500px;
+            position: relative;
+        }
+
+        #input-container { position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+        }
+
+        #input-box {
+            width: 80%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #send-button {
+            width: 18%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chat-box">
+        {% for i in range(0,messages|length) %}
+            {% if prediction[i] == 1%}
+                <div>{{messages[i]}}</div>
+                <div style="text-align: right">Text is suspicious.</div>
+            {% endif %}
+            {% if prediction[i] == 0%}
+                <div>{{messages[i]}}</div>
+                <div style="text-align: right">Text is not suspicious.</div>
+            {% endif %}
+
+        {% endfor %}
+        <form action="/" method="post">
+            <div id="input-container">
+                <input type="text" id="input-box" name="message" placeholder="Type your message...">
+                <button type="submit" id="send-button">Send</button>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+</html>
