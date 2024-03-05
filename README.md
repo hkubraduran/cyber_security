@@ -54,5 +54,5 @@
 
 * In the last stage, we connected the website with the code we wrote. The text entered by the user in the text box is tested by the algorithm with the “Send” button. The prediction result is printed below the button. 
     
-    ![website](website.jpg)
+    ![website](website.png)
 
